@@ -3,7 +3,7 @@ import BaseLayout from "@/layout/BaseLayout";
 export const CreateEventTemplate = () => {
   return (
     <BaseLayout >
-      <div>Ok</div>
+      <div className="font-inter text-black">Ok</div>
     </BaseLayout>
   );
 };
