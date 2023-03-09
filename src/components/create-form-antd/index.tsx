@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Form, Input, Button, Row } from "antd";
 import { UserOutlined, MailOutlined } from "@ant-design/icons";
 import style from "./style.module.scss";
@@ -9,9 +10,15 @@ interface FormValues {
 
 export const CreateForm = () => {
   const [form] = Form.useForm();
+  const [blogName, setBlogName] = useState("");
   const onFinish = (values: FormValues) => {
     console.log("Received values of form: ", values);
     // Handle form submission here
+  };
+
+  const onChangeTitle = (values: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(`hehe ${values.target.value}`);
+    setBlogName(values.target.value);
   };
 
   return (
@@ -23,9 +30,24 @@ export const CreateForm = () => {
             className="self-auto"
             rules={[{ required: true, message: "Please enter your name!" }]}
           >
-            <Input.TextArea
+            {/* <Input.TextArea
               autoSize={{ minRows: 1, maxRows: 6 }}
+              value={blogName}
               className={`bg-[#942F70] placeholder-white text-5xl font-bold text-white rounded-none focus:placeholder-transparent self-auto ${style["input-field"]}`}
+              placeholder="Untitle Event"
+            /> */}
+            <div>
+              <span
+                className={`bg-[#942F70] placeholder-white text-5xl font-bold text-white rounded-none focus:placeholder-transparent self-auto ${style["input-field"]}`}
+              >
+                {blogName}
+              </span>
+            </div>
+
+            <Input
+              onChange={onChangeTitle}
+              addonBefore={<span>{form.getFieldValue("name")}</span>}
+              width={1}
               placeholder="Untitle Event"
             />
           </Form.Item>
