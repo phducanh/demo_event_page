@@ -49,7 +49,7 @@ export const CreateForm = () => {
 
             <Input.TextArea
               autoSize={{ minRows: 1, maxRows: 6 }}
-              className={`bg-transparent placeholder-white text-5xl font-bold text-white rounded-none focus:placeholder-transparent absolute top-0 text-transparent outline-none focus:border-none hover:border-none active:border-none border-none`}
+              className={`bg-transparent placeholder-white text-5xl font-bold text-white rounded-none focus:placeholder-transparent absolute top-0 text-transparent`}
               value={blogName}
               onChange={handleTextAreaChange}
             />
