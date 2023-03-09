@@ -24,9 +24,7 @@ export default function BaseLayout({
   children: React.ReactNode;
 }) {
   return (
-    <Layout
-      className={`font-primary ${style["layout"]}`}
-    >
+    <Layout className={`font-primary min-h-screen ${style["layout"]}`}>
       <Header className="bg-transparent">
         <Row justify="space-between">
           <Image
