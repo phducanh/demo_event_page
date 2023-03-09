@@ -21,13 +21,17 @@ export const CreateForm = () => {
     setBlogName(values.target.value);
   };
 
+  function handleTextAreaChange(event: React.ChangeEvent<HTMLTextAreaElement>) {
+    setBlogName(event.target.value);
+  }
+
   return (
     <Form onFinish={onFinish}>
       <Row>
         <div>
           <Form.Item
             name="name"
-            className="self-auto"
+            className="self-auto relative"
             rules={[{ required: true, message: "Please enter your name!" }]}
           >
             {/* <Input.TextArea
@@ -36,23 +40,29 @@ export const CreateForm = () => {
               className={`bg-[#942F70] placeholder-white text-5xl font-bold text-white rounded-none focus:placeholder-transparent self-auto ${style["input-field"]}`}
               placeholder="Untitle Event"
             /> */}
-            <div>
-              <span
-                className={`bg-[#942F70] placeholder-white text-5xl font-bold text-white rounded-none focus:placeholder-transparent self-auto ${style["input-field"]}`}
-              >
-                {blogName}
-              </span>
-            </div>
 
-            <Input
+            <span
+              className={`bg-[#942F70] placeholder-white text-5xl font-bold text-transparent rounded-none focus:placeholder-transparent block py-5 px-3`}
+            >
+              {blogName}
+            </span>
+
+            <Input.TextArea
+              autoSize={{ minRows: 1, maxRows: 6 }}
+              className={`bg-transparent placeholder-white text-5xl font-bold text-white rounded-none focus:placeholder-transparent absolute top-0 text-transparent outline-none focus:border-none hover:border-none active:border-none border-none`}
+              value={blogName}
+              onChange={handleTextAreaChange}
+            />
+
+            {/* <Input
               className="background-transparent"
               onChange={onChangeTitle}
               //   addonBefore={<span>{form.getFieldValue("name")}</span>}
               width={1}
               placeholder="Untitle Event"
-            />
+            /> */}
           </Form.Item>
-          <Form.Item
+          {/* <Form.Item
             name="email"
             rules={[
               { required: true, message: "Please enter your email!" },
@@ -66,15 +76,15 @@ export const CreateForm = () => {
             rules={[{ required: true, message: "Please enter your message!" }]}
           >
             <Input.TextArea placeholder="Message" />
-          </Form.Item>
+          </Form.Item> */}
         </div>
       </Row>
 
-      <Form.Item>
+      {/* <Form.Item>
         <Button type="primary" htmlType="submit">
           Submit
         </Button>
-      </Form.Item>
+      </Form.Item> */}
     </Form>
   );
 };
