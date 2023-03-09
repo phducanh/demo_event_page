@@ -47,7 +47,7 @@ export default function BaseLayout({
       </Layout> */}
 
       <Content style={{ padding: "0 50px" }}>
-        <div className="site-layout-content">Content</div>
+        <div className="site-layout-content">{children}</div>
       </Content>
     </Layout>
   );
