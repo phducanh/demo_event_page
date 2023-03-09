@@ -45,8 +45,9 @@ export const CreateForm = () => {
             </div>
 
             <Input
+              className="background-transparent"
               onChange={onChangeTitle}
-              addonBefore={<span>{form.getFieldValue("name")}</span>}
+              //   addonBefore={<span>{form.getFieldValue("name")}</span>}
               width={1}
               placeholder="Untitle Event"
             />
