@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Form, Input, Button, Row } from "antd";
+import { Form, Input, Button, Row, Col, TimePicker, DatePicker } from "antd";
 import { UserOutlined, MailOutlined } from "@ant-design/icons";
 import style from "./style.module.scss";
 interface FormValues {
@@ -10,7 +10,7 @@ interface FormValues {
 
 export const CreateForm = () => {
   const [form] = Form.useForm();
-  const [blogName, setBlogName] = useState("");
+  const [blogName, setBlogName] = useState("Untitled Event");
   const onFinish = (values: FormValues) => {
     console.log("Received values of form: ", values);
     // Handle form submission here
@@ -28,27 +28,54 @@ export const CreateForm = () => {
   return (
     <Form onFinish={onFinish}>
       <Row>
-        <div>
+        <Col span={12}>
           <Form.Item
             name="name"
-            className="self-auto relative"
+            className={`self-auto relative w-full`}
             rules={[{ required: true, message: "Please enter your name!" }]}
           >
-
-            <span
-              className={`bg-[#942F70] placeholder-white text-5xl font-bold text-transparent rounded-none focus:placeholder-transparent block py-5 px-3`}
-            >
-              {blogName}
-            </span>
-
-            <Input.TextArea
-              autoSize={{ minRows: 1, maxRows: 6 }}
-              className={`bg-transparent placeholder-white text-5xl font-bold text-white rounded-none focus:placeholder-transparent absolute top-0 text-transparent`}
-              value={blogName}
-              onChange={handleTextAreaChange}
-            />
-
+            <div className="w-full relative">
+              <span
+                className={`bg-[#942F70] text-5xl text-transparent break-word font-bold leading-[75px] ${style["show-title"]}`}
+              >
+                {blogName}
+              </span>
+              <Input.TextArea
+                maxLength={200}
+                autoSize={{ minRows: 1, maxRows: 10 }}
+                className={`bg-transparent placeholder-white text-5xl font-bold text-white rounded-none focus:placeholder-transparent top-0 text-transparent p-0 absolute left-0 min-w-[30px] break-word ${style["show-title"]}`}
+                value={blogName}
+                onChange={handleTextAreaChange}
+              />
+            </div>
           </Form.Item>
+          <Row>
+            <Form.Item
+              name="date"
+              className={`self-auto relative w-full`}
+              rules={[{ required: true, message: "Please enter date" }]}
+            >
+              <DatePicker
+                className={`font-bold`}
+                size={"large"}
+                suffixIcon={null}
+                placeholder="Date"
+              />
+            </Form.Item>
+            <Form.Item
+              name="time"
+              className={`self-auto relative w-full`}
+              rules={[{ required: true, message: "Please enter time" }]}
+            >
+              <TimePicker
+                suffixIcon={null}
+                placeholder="Time"
+                className={`font-bold`}
+                size={"large"}
+              />
+            </Form.Item>
+          </Row>
+
           {/* <Form.Item
             name="email"
             rules={[
@@ -64,7 +91,7 @@ export const CreateForm = () => {
           >
             <Input.TextArea placeholder="Message" />
           </Form.Item> */}
-        </div>
+        </Col>
       </Row>
 
       {/* <Form.Item>
