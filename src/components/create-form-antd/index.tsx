@@ -50,38 +50,51 @@ export const CreateForm = () => {
               />
             </div>
           </Form.Item>
-          <Row>
-            <Form.Item
-              name="date"
-              className={`self-auto relative w-full`}
-              rules={[{ required: true, message: "Please enter date" }]}
-            >
-              <DatePicker
-                className={`font-bold`}
-                size={"large"}
-                suffixIcon={null}
-                placeholder="Date"
-              />
-            </Form.Item>
-
-            <Form.Item
-              name="time"
-              className={`self-auto relative w-full`}
-              rules={[{ required: true, message: "Please enter time" }]}
-            >
-              <Image
-                src="/icons/icon-time.svg"
-                height={20}
-                width={20}
-                alt="time"
-              />
-              <TimePicker
-                suffixIcon={null}
-                placeholder="Time"
-                className={`font-bold`}
-                size={"large"}
-              />
-            </Form.Item>
+          <Row gutter={24}>
+            <Col>
+              <Form.Item
+                name="startAt"
+                className={`self-auto relative w-full flex`}
+                rules={[{ required: true, message: "Please enter date" }]}
+              >
+                <Image
+                  className="inline-block mr-4"
+                  src="/images/icons/icon-date.svg"
+                  height={30}
+                  width={30}
+                  alt="time"
+                />
+                <DatePicker
+                  format="MMMM DD, dddd"
+                  className={`font-bold`}
+                  size={"large"}
+                  suffixIcon={null}
+                  placeholder="Date"
+                />
+              </Form.Item>
+            </Col>
+            <Col>
+              <Form.Item
+                name="time"
+                className={`self-auto relative w-full flex`}
+                rules={[{ required: true, message: "Please enter time" }]}
+              >
+                <Image
+                  className="inline-block mr-4"
+                  src="/images/icons/icon-time.svg"
+                  height={30}
+                  width={30}
+                  alt="time"
+                />
+                <TimePicker
+                  format="h A"
+                  suffixIcon={null}
+                  placeholder="Time"
+                  className={`font-bold`}
+                  size={"large"}
+                />
+              </Form.Item>
+            </Col>
           </Row>
 
           {/* <Form.Item

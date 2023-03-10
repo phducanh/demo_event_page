@@ -42,9 +42,6 @@ export default function BaseLayout({
           />
         </Row>
       </Header>
-      {/* <Layout>
-        <Layout className="bg-white">{children}</Layout>
-      </Layout> */}
 
       <Content style={{ padding: "0 50px" }}>
         <div className="site-layout-content">{children}</div>
