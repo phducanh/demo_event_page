@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { Form, Input, Button, Row, Col, TimePicker, DatePicker } from "antd";
 import { UserOutlined, MailOutlined } from "@ant-design/icons";
 import style from "./style.module.scss";
@@ -62,11 +63,18 @@ export const CreateForm = () => {
                 placeholder="Date"
               />
             </Form.Item>
+
             <Form.Item
               name="time"
               className={`self-auto relative w-full`}
               rules={[{ required: true, message: "Please enter time" }]}
             >
+              <Image
+                src="/icons/icon-time.svg"
+                height={20}
+                width={20}
+                alt="time"
+              />
               <TimePicker
                 suffixIcon={null}
                 placeholder="Time"
