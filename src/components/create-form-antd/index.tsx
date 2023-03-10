@@ -34,12 +34,6 @@ export const CreateForm = () => {
             className="self-auto relative"
             rules={[{ required: true, message: "Please enter your name!" }]}
           >
-            {/* <Input.TextArea
-              autoSize={{ minRows: 1, maxRows: 6 }}
-              value={blogName}
-              className={`bg-[#942F70] placeholder-white text-5xl font-bold text-white rounded-none focus:placeholder-transparent self-auto ${style["input-field"]}`}
-              placeholder="Untitle Event"
-            /> */}
 
             <span
               className={`bg-[#942F70] placeholder-white text-5xl font-bold text-transparent rounded-none focus:placeholder-transparent block py-5 px-3`}
@@ -54,13 +48,6 @@ export const CreateForm = () => {
               onChange={handleTextAreaChange}
             />
 
-            {/* <Input
-              className="background-transparent"
-              onChange={onChangeTitle}
-              //   addonBefore={<span>{form.getFieldValue("name")}</span>}
-              width={1}
-              placeholder="Untitle Event"
-            /> */}
           </Form.Item>
           {/* <Form.Item
             name="email"
