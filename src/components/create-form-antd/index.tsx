@@ -50,76 +50,92 @@ export const CreateForm = () => {
               />
             </div>
           </Form.Item>
-          <Row gutter={24}>
-            <Col>
-              <Form.Item
-                name="startAt"
-                className={`self-auto relative w-full flex`}
-                rules={[{ required: true, message: "Please enter date" }]}
-              >
-                <Image
-                  className="inline-block mr-4"
-                  src="/images/icons/icon-date.svg"
-                  height={30}
-                  width={30}
-                  alt="time"
-                />
-                <DatePicker
-                  format="MMMM DD, dddd"
-                  className={`font-bold`}
-                  size={"large"}
-                  suffixIcon={null}
-                  placeholder="Date"
-                />
-              </Form.Item>
-            </Col>
-            <Col>
-              <Form.Item
-                name="time"
-                className={`self-auto relative w-full flex`}
-                rules={[{ required: true, message: "Please enter time" }]}
-              >
-                <Image
-                  className="inline-block mr-4"
-                  src="/images/icons/icon-time.svg"
-                  height={30}
-                  width={30}
-                  alt="time"
-                />
-                <TimePicker
-                  format="h A"
-                  suffixIcon={null}
-                  placeholder="Time"
-                  className={`font-bold`}
-                  size={"large"}
-                />
-              </Form.Item>
-            </Col>
-          </Row>
-
-          {/* <Form.Item
-            name="email"
+        </Col>
+      </Row>
+      <Row gutter={24}>
+        <Row>
+          <Image
+            className="inline-block mr-4"
+            src="/images/icons/icon-date.svg"
+            height={30}
+            width={30}
+            alt="time"
+          />
+          <Form.Item
+            name="startAt"
             rules={[
-              { required: true, message: "Please enter your email!" },
-              { type: "email", message: "Please enter a valid email!" },
+              {
+                type: "object" as const,
+                required: true,
+                message: "Please select time!",
+              },
             ]}
           >
-            <Input prefix={<MailOutlined />} placeholder="Email" />
+            <DatePicker
+              format="MMMM DD, dddd"
+              className={`font-bold`}
+              size={"large"}
+              suffixIcon={null}
+              placeholder="Date"
+              name="startAt"
+            />
           </Form.Item>
+        </Row>
+
+        <Col>
+          <Image
+            className="inline-block mr-4"
+            src="/images/icons/icon-time.svg"
+            height={30}
+            width={30}
+            alt="time"
+          />
           <Form.Item
-            name="message"
-            rules={[{ required: true, message: "Please enter your message!" }]}
+            name="startTime"
+            className={`self-auto relative w-full flex`}
+            rules={[
+              {
+                type: "object" as const,
+                required: true,
+                message: "Please select time!",
+              },
+            ]}
           >
-            <Input.TextArea placeholder="Message" />
-          </Form.Item> */}
+            <TimePicker
+              format="h A"
+              name="startTime"
+              suffixIcon={null}
+              placeholder="Time"
+              className={`font-bold`}
+              size={"large"}
+            />
+          </Form.Item>
+        </Col>
+      </Row>
+      <Row>
+        <Col span={12}>
+          <Image
+            className="inline-block mr-4"
+            src="/images/icons/icon-venue.svg"
+            height={14}
+            width={14}
+            alt="venue"
+          />
+          <Form.Item
+            name="venue"
+            className={`w-full flex`}
+            // rules={[{ required: true, message: "Please enter venue" }]}
+          >
+            <Input className="" name="venue" />
+          </Form.Item>
         </Col>
       </Row>
 
-      {/* <Form.Item>
+      <Form.Item>
         <Button type="primary" htmlType="submit">
           Submit
         </Button>
-      </Form.Item> */}
+      </Form.Item>
     </Form>
   );
 };
